@@ -126,9 +126,9 @@ console.log(res7)
 console.log("--------------------------------");
 // 8. uzd
 let raksts = {
-  virsraksts: "Title",
-  autors: "Author",
-  saturs: "88888",
+  virsraksts: "Virsraksts",
+  autors: "Autors",
+  saturs: "54352143524436543232432716",
   patik: [],
   lasisanasIlgums: function () {
       var lasisanasIlgums = raksts.saturs / 1500;
@@ -153,6 +153,8 @@ raksts.nonemtPatik();
 str = JSON.stringify(raksts, null, 4);
 console.log(str);
 lasisanasilgums = raksts.lasisanasIlgums();
+
+
 console.log(lasisanasilgums);
 console.log("--------------------------------");
 // 9. uzd
@@ -258,3 +260,18 @@ sia.pievienotDibinataju(
   }
 )
 console.log(sia.dibinatajuSaraksts())
+console.log("--------------------------------");
+
+// 11.
+
+let atzimes = (a,b,c) => {
+    let atzimes = (a+b+c)/3;
+    console.log("videja atzime:"+atzimes);
+    if(atzimes >= 4){
+        console.log("vertejums ieskaitits");
+    }
+    else {
+        console.log("vertejums neieskaitits");
+    }
+} 
+console.log(atzimes(5,2,7))
