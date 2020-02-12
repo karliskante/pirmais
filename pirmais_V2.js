@@ -9,7 +9,7 @@ function reverseString(str) {
     return newString;
 }
 console.log(reverseString('text'));
-
+console.log("--------------------------------");
 // 2.
 var patiesiba = false;
 var a = 1;
@@ -30,6 +30,7 @@ else {
     patiesiba = false;
 }
 console.log(patiesiba);
+console.log("--------------------------------");
 
 // 3.
 
@@ -49,12 +50,10 @@ function masivs(array) {
 
   console.log("SUMMA IR: "+masivs(array));
 
-   console.log("-------------------- ");
-     console.log("--------------------");
-	   console.log("---------------------");
+  console.log("--------------------------------");
 // 4.
 
-var arrayz = [5, 3, "ABDF"];
+var arrayz = [5, 3];
 var sum;
   var pat2 = !arrayz.some(i => !Number.isInteger(i));
 function masivs2(arrayz) {
@@ -81,8 +80,8 @@ function masivs2(arrayz) {
     }
   }
 }
-
-
+console.log(masivs2(arrayz));
+console.log("--------------------------------");
 // 5.
 
 var cipars1 = 6;
@@ -100,10 +99,9 @@ if (cipars1 == cipars2) {
 	}
 	
 }
- console.log("-------------------- ");
-     console.log("--------------------");
-	   console.log("---------------------");
-	   console.log(summer(cipars1,cipars2));
+
+       console.log(summer(cipars1,cipars2));
+       console.log("--------------------------------");
 
  // 6. uzd
 const authInput = (login, password) => {
@@ -112,46 +110,51 @@ const authInput = (login, password) => {
   if (password.length < 12) return "vismaz 12 simboli";
   return "Success";
 }
-const res6 = authInput("admin", "admin123");
+const res6 = authInput("admin", "admin123456789");
 console.log(res6)
-
+console.log("--------------------------------");
 // 7. uzd
+var arrayx = [1, 2, 3, 4];
 const getLastAndFirsElFromArray = array => {
   if(array === null) return "Array is empty";
   if(array.length === 0) return "Array is empty";
   if(array.length === 1 || array.length === 2) return array;
   return [array[0], array[array.length - 1]];
 }
-const res7 = getLastAndFirsElFromArray([1, 3, ,4, 5]);
+const res7 = getLastAndFirsElFromArray(arrayx);
 console.log(res7)
-
+console.log("--------------------------------");
 // 8. uzd
-let Raksts = {
+let raksts = {
   virsraksts: "Title",
   autors: "Author",
-  saturs: "Content content content",
+  saturs: "88888",
   patik: [],
-  lasisanasIlgums: () => {
-      return Raksts.saturs.length / 1500
+  lasisanasIlgums: function () {
+      var lasisanasIlgums = raksts.saturs / 1500;
+      var hours = Math.floor(lasisanasIlgums / 60);
+      var minutes = lasisanasIlgums % 60;
+      return hours + " stundas un " + minutes + " minutes";
   },
-  pieskirtPatik: id => {
-      Raksts.patik.push(id);
-      return Raksts.patik;
+  pieskirtPatik: function (patik) {
+      var uid = ('id' + (new Date()).getTime());
+      this.patik.push(uid);
+      return raksts.patik;
   },
-  nonemtPatik: id => {
-      const idx = Raksts.patik.indexOf(id)
-      Raksts.patik.splice(idx, 1);
-      return Raksts.patik
-  }
-}
+  nonemtPatik: function () {
+      return this.patik.splice(this.patik.length - 1);
+  },
+};
 
-console.log(Raksts.lasisanasIlgums())
-console.log(Raksts.pieskirtPatik(1))
-console.log(Raksts.pieskirtPatik(2))
-console.log(Raksts.pieskirtPatik(3))
-console.log(Raksts.pieskirtPatik(2))
-console.log(Raksts)
-
+raksts.pieskirtPatik();
+str = JSON.stringify(raksts, null, 4);
+console.log(str);
+raksts.nonemtPatik();
+str = JSON.stringify(raksts, null, 4);
+console.log(str);
+lasisanasilgums = raksts.lasisanasIlgums();
+console.log(lasisanasilgums);
+console.log("--------------------------------");
 // 9. uzd
 class Uznemums {
   constructor(data) {
@@ -191,34 +194,38 @@ const dataToSend = {
       date: new Date(),
   },
   address: {
-      street: "Liela iela",
-      number: 1,
-      city: "Jelgava",
-      region: "Zemgale",
-      index: "LV-3001"
+      street: "Riharda Vagnera iela",
+      number: 16,
+      city: "Riga",
+      region: "Riga",
+      index: "LV-1018"
   },
-  phone: 29705401,
-  taxes: 500,
+  phone: 26212111,
+  taxes: 800,
   updateDate: new Date()
 }
 const uzn = new Uznemums(dataToSend);
-uzn.Debt = {date: new Date(), updatedTaxes: 100};
+uzn.Debt = {date: new Date(), updatedTaxes: 100000};
 console.log(uzn.Debt);
-
+console.log("--------------------------------");
 // 10. uzd
-class SIA extends Uznemums {
-  constructor(uznData, SIAdata) {
+class SIA extends Uznemums
+ {
+  constructor(uznData, SIAdata) 
+  {
       super(uznData, SIAdata);
       this.form = "SIA";
       this._capital = SIAdata.capital;
       this._founder = SIAdata.founder;
   }
 
-  pievienotDibinataju (data) {
+  pievienotDibinataju (data)
+   {
       this._founder.push(data)
   }
 
-  dibinatajuSaraksts() {
+  dibinatajuSaraksts() 
+  {
       return {
           title: this.title,
           date: this.regData,
